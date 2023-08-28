@@ -16,25 +16,25 @@
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
+                                          <!-- fist item -->
                <div class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
                         <h5>iPhone 11 128GB Black</h5>
                      </div>
-
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusBtn1" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phnNum" type="text" class="form-control text-center" value="1">
+                           <button id="plusBtn1" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="phnValue">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
-
+                                             <!-- second item -->
                <div class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
@@ -43,17 +43,17 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusBtn2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="caseNum" type="text" class="form-control text-center" value="1">
+                           <button id="plusBtn2" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="caseValue">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
-
+                                          <!-- total -->
                <div class="cart-item">
                   <div class="row">
 
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$<span id="subTotal">1278</span></h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$<span id="total">1278</span></h5>
                      </div>
                   </div>
                </div>
@@ -77,6 +77,108 @@
          </div>
       </div>
    </section>
+
+   <script>
+      
+// iPhone
+
+   // Plus
+      const plusBtn1 = document.getElementById("plusBtn1");
+      plusBtn1.addEventListener("click",function(){
+
+         const phnNum = document.getElementById("phnNum").value; 
+         const phnNumber =  parseFloat(phnNum);
+         const totalPhnNumberUp = phnNumber + 1;
+         document.getElementById("phnNum").value = totalPhnNumberUp; 
+         const phoneValue = document.getElementById("phnValue").innerText;
+         const iPhoneValue = parseFloat(phoneValue);
+
+         document.getElementById("phnValue").innerText = iPhoneValue + 1219;   
+         
+      // Total
+
+         const subTotalValue = document.getElementById("subTotal").innerText;
+         const subTotalValueNumber = parseFloat(subTotalValue);
+         document.getElementById("subTotal").innerText = subTotalValueNumber + 1219;
+
+         const totalValue = document.getElementById("total").innerText;
+         const totalValueNumber = parseFloat(totalValue);
+         document.getElementById("total").innerText = totalValueNumber + 1219;
+      })
+   // Minus
+      const minusBtn1 = document.getElementById("minusBtn1");
+      minusBtn1.addEventListener("click",function(){
+         
+         const phnNum = document.getElementById("phnNum").value; 
+         const phnNumber =  parseFloat(phnNum);
+         const totalPhnNumberDown = phnNumber - 1;
+         document.getElementById("phnNum").value = totalPhnNumberDown; 
+         const phoneValue = document.getElementById("phnValue").innerText;
+         const iPhoneValue = parseFloat(phoneValue);
+
+         document.getElementById("phnValue").innerText = iPhoneValue - 1219; 
+
+      // Total
+
+         const subTotalValue = document.getElementById("subTotal").innerText;
+         const subTotalValueNumber = parseFloat(subTotalValue);
+         document.getElementById("subTotal").innerText = subTotalValueNumber - 1219;
+
+         const totalValue = document.getElementById("total").innerText;
+         const totalValueNumber = parseFloat(totalValue);
+         document.getElementById("total").innerText = totalValueNumber - 1219;
+      })
+
+// Case
+   // Plus
+      const plusBtn2 = document.getElementById("plusBtn2");
+      plusBtn2.addEventListener("click",function(){
+
+         const caseNum = document.getElementById("caseNum").value; 
+         const caseNumber =  parseFloat(caseNum);
+         const totalCaseNumberUp = caseNumber + 1;
+         document.getElementById("caseNum").value = totalCaseNumberUp; 
+
+         const phoneCaseValue = document.getElementById("caseValue").innerText;
+         const iPhoneCaseValue = parseFloat(phoneCaseValue);
+         document.getElementById("caseValue").innerText = iPhoneCaseValue + 59;  
+         
+      // Total
+
+         const subTotalValue = document.getElementById("subTotal").innerText;
+         const subTotalValueNumber = parseFloat(subTotalValue);
+         document.getElementById("subTotal").innerText = subTotalValueNumber + 59;
+
+         const totalValue = document.getElementById("total").innerText;
+         const totalValueNumber = parseFloat(totalValue);
+         document.getElementById("total").innerText = totalValueNumber + 59;
+      })
+// Minus
+      const minusBtn2 = document.getElementById("minusBtn2");
+      minusBtn2.addEventListener("click",function(){
+         
+         const caseNum = document.getElementById("caseNum").value; 
+         const caseNumber =  parseFloat(caseNum);
+         const totalCaseNumberDown = caseNumber - 1;
+         document.getElementById("caseNum").value = totalCaseNumberDown; 
+
+         const phoneCaseValue = document.getElementById("caseValue").innerText;
+         const iPhoneCaseValue = parseFloat(phoneCaseValue);
+         document.getElementById("caseValue").innerText = iPhoneCaseValue - 59;   
+         
+      // Total
+
+         const subTotalValue = document.getElementById("subTotal").innerText;
+         const subTotalValueNumber = parseFloat(subTotalValue);
+         document.getElementById("subTotal").innerText = subTotalValueNumber - 59;
+
+         const totalValue = document.getElementById("total").innerText;
+         const totalValueNumber = parseFloat(totalValue);
+         document.getElementById("total").innerText = totalValueNumber - 59;
+         
+      })
+
+   </script>
 </body>
 
 </html>
